@@ -1,2 +1,14 @@
-# portfolio-php
-Création d'un portfolio
+**#portfolio-php**
+
+
+listes pages:
+
+-accueil
+
+-presentation
+
+-competences
+
+-projets
+
+-contact
