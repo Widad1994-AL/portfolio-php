@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global */
+body { 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    @apply { text-slate-800 };
+    background-image: url(../images/home_1.png);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, nav { font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+nav { font-weight: 400;}
+
+/* Styles spécifiques pour le Bento Design */
+.bento-grid {
+    @apply grid grid-cols-3 gap-2 p-5;
+}
+
+.bento-item {
+    @apply rounded-lg overflow-hidden;
+}
+
+.bento-item img {
+    @apply w-full h-auto block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bento-grid {
+        @apply grid-cols-2;
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        @apply grid-cols-1;
+    }
+}
+
+/* Styles spécifiques pour le Bento container */
+.bento-container {
+    @apply relative z-10; /* Important pour positionner l'arrière-plan */
+}
+
+.bento-container::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-[url('./images/home_1.png')] bg-cover bg-no-repeat bg-center z-[-1] opacity-10; /* Remplacez par le chemin de votre image */
+}
+
+
+.home-img{
+
+    background-image: url("../images/home_3.png");
+    background-position:  center;
+    background-size: cover;
+
+}
+

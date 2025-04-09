@@ -1,34 +1,43 @@
 <?php
 
-switch ($_SERVER['REQUEST_URI']) {
+
+
+$path = $_SERVER['REQUEST_URI'];
+
+$cleanPath = preg_replace('/\?.*/', '', $path);
+ 
+ switch ($cleanPath) {
 
     case '/':
 
-        echo "Page d'accueil";
+      include './templates/home.php';
          break;
     
    
         case '/about':
 
-         echo "Page de présentation";
+          include './templates/about.php';
          break;
     
     
         case '/skills':
     
-         echo "Page de compétences";
+         include './templates/skills.php';
          break;
     
    
         case '/projects':
     
-          echo "Page de projets";
+      
+          include'./templates/projects.php';
           break;
   
         case '/contact':
-    
-          echo "Page de contact";
+          include'./templates/contact.php';
           break;
-    
+      
+          default:
+          echo 'Page introuvable - 404 ';;
+          break;
 }
  
