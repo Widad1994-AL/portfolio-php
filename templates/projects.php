@@ -1,9 +1,10 @@
+
 <?php
 
 /**
  * Page des projets à partir du fichier
  * '/assets/projects.json
- * API des icone : https://devicon.dev/
+ * API des icones : https://devicon.dev/
  */
 
 $data = file_get_contents('./assets/projects.json'); // Récupération du contenu d'un fichier
@@ -18,33 +19,73 @@ function toSlug(string $stackIcon): string
 }
 ?>
 
-<h1 class="bg-clip-text bg-gradient-to-br from-slate-800 to-slate-400 text-6xl font-bold text-transparent text-center">
+<h1 class="bg-clip-text bg-gradient-to-br from-slate-300 to-white text-6xl font-bold text-transparent text-center mb-10">
     Mes projets
 </h1>
 
 <?php foreach ($projects as $item): ?>
-    <div class="p-4 flex border-b border-slate-500">
-        <div class="w-1/2 border-r border-slate-500">
-            <h3 class="text-2xl font-bold mb-5"><?= $item['title'] ?></h3>
-            <p class=""><?= $item['description'] ?></p>
+    <div class="p-4 flex flex-col md:flex-row border-b border-slate-600 text-white">
+        <div class="md:w-1/2 border-b md:border-b-0 md:border-r border-slate-600 p-4">
+            <h3 class="text-2xl font-bold mb-3"><?= $item['title'] ?></h3>
+            <p class="text-slate-200"><?= $item['description'] ?></p>
         </div>
-        <div class="w-screen border-r border-slate-500">
-            <h3 class="text-2xl font-bold mb-5">Stack</h3>
-            <ul class="flex gap-4">
-                <? foreach ($item['stack'] as $icon): ?>
+        <div class="md:w-1/2 p-4 border-b md:border-b-0 md:border-r border-slate-600">
+            <h3 class="text-2xl font-bold mb-3">Stack</h3>
+            <ul class="flex flex-wrap gap-4">
+                <?php foreach ($item['stack'] as $icon): ?>
                     <li class="h-10 w-10">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/<?php echo toSlug($icon) . '/' . toSlug($icon) ?>-original.svg" alt="<?= "Logo " . $icon ?>" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/<?= toSlug($icon) ?>/<?= toSlug($icon) ?>-original.svg" alt="<?= "Logo " . $icon ?>" />
                     </li>
-                <? endforeach ?>
+                <?php endforeach; ?>
             </ul>
         </div>
-        <div class="w-24 text-slate-400 flex items-center justify-center">
-            <a href="https://www.google.fr/" target="_blank " noreferrer>
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
-          
-                <path fill="currentColor" d="m8.006 21.308l-1.064-1.064L15.187 12L6.942 3.756l1.064-1.064L17.314 12z" />
-            </svg>
+        <div class="w-full md:w-24 text-slate-300 flex items-center justify-center p-4">
+            <a href="https://www.google.fr/" target="_blank" rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="hover:text-white transition">
+                    <path fill="currentColor" d="m8.006 21.308l-1.064-1.064L15.187 12L6.942 3.756l1.064-1.064L17.314 12z" />
+                </svg>
             </a>
         </div>
     </div>
-<? endforeach; ?>
+<?php endforeach; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
